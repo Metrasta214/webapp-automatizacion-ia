@@ -38,7 +38,13 @@
                   <h2 class="visually-hidden" id="form-title"><label for="pregunta">¿Qué quieres entender?</label></h2>
                   <textarea class="form-control" id="pregunta" name="pregunta" required rows="3" maxlength="1000" aria-describedby="contador pregunta-error" placeholder="¿Qué quieres entender?"></textarea>
                   <div class="invalid-feedback" id="pregunta-error"></div>
+                  <div class="composer-tools">
                   <div class="form-text text-end" id="contador">0 / 1000 caracteres</div>
+                    <div class="composer-actions">
+                <button type="submit" class="btn btn-consulta"><span aria-hidden="true">↑</span><span class="visually-hidden">Enviar consulta</span></button>
+                <button type="reset" class="btn btn-quiet">Limpiar</button>
+              </div>
+                  </div>
                 </div>
                 <div class="col-12 col-sm-4">
                   <label class="form-label" for="tema">Tema</label>
@@ -66,10 +72,6 @@
                   </select>
                   <div class="invalid-feedback" id="nivel-error"></div>
                 </div>
-              </div>
-              <div class="composer-actions">
-                <button type="submit" class="btn btn-consulta"><span aria-hidden="true">↑</span><span class="visually-hidden">Enviar consulta</span></button>
-                <button type="reset" class="btn btn-quiet">Limpiar</button>
               </div>
             </fieldset>
           </form>
