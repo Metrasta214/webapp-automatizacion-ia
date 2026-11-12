@@ -6,9 +6,9 @@
   <title>Asistente académico TIC</title>
   <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  <link rel="stylesheet" href="./css/styles.css?v=6">
+  <link rel="stylesheet" href="./css/styles.css?v=7">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,800&amp;display=swap">
-  <script type="module" src="./js/assistant.js"></script>
+  <script type="module" src="./js/assistant.js?v=7"></script>
 </head>
 <body>
   <header class="masthead">
@@ -16,8 +16,18 @@
       <p class="course"><strong>TecNM Pachuca</strong><span>Inteligencia Artificial aplicada a las TIC</span></p>
     </div>
   </header>
-  <main class="container site-width py-4 py-md-5">
+  <div class="chat-layout">
+    <aside class="chat-history" aria-labelledby="history-title">
+      <h2 id="history-title">Historial</h2>
+      <button type="reset" form="consulta" class="btn btn-example">Nueva consulta</button>
+      <p id="history-empty" class="text-secondary">Tus consultas guardadas aparecerán aquí.</p>
+      <ul id="history-list"></ul>
+    </aside>
+  <main class="chat-main">
     <h1>Asistente académico TIC</h1>
+    <div id="vacio" class="suggestion">
+      <button type="button" id="suggestion" class="btn btn-example">¿Cómo funciona DNS?</button>
+    </div>
     <div class="work-area">
       <section aria-labelledby="form-title">
         <div class="card workspace p-3 p-sm-4">
@@ -30,7 +40,7 @@
                   <div class="invalid-feedback" id="pregunta-error"></div>
                   <div class="form-text text-end" id="contador">0 / 1000 caracteres</div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-12 col-sm-4">
                   <label class="form-label" for="tema">Tema</label>
                   <select class="form-select" id="tema" name="tema" required aria-describedby="tema-error">
                     <option value="">Selecciona un tema</option>
@@ -39,15 +49,15 @@
                   </select>
                   <div class="invalid-feedback" id="tema-error"></div>
                 </div>
-                <div class="col-sm-6">
-                  <label class="form-label" for="nivel">Nivel de explicación</label>
+                <div class="col-12 col-sm-4">
+                  <label class="form-label" for="nivel">Pensamiento</label>
                   <select class="form-select" id="nivel" name="nivel" required aria-describedby="nivel-error">
                     <option value="">Elige un nivel</option>
                     <option>Básico</option><option>Intermedio</option><option>Avanzado</option>
                   </select>
                   <div class="invalid-feedback" id="nivel-error"></div>
                 </div>
-                <div class="col-12">
+                <div class="col-12 col-sm-4">
                   <label class="form-label" for="integracion">Integración</label>
                   <select class="form-select" id="integracion" name="integracion" required aria-describedby="integracion-help integracion-error">
                     <option value="nativo">Nodo OpenAI</option>
@@ -58,21 +68,16 @@
                 </div>
               </div>
               <div class="d-flex flex-wrap gap-2 mt-4">
-                <button type="submit" class="btn btn-consulta">Obtener explicación</button>
+                <button type="submit" class="btn btn-consulta"><span aria-hidden="true">↑</span><span class="visually-hidden">Enviar consulta</span></button>
                 <button type="reset" class="btn btn-quiet">Limpiar</button>
               </div>
             </fieldset>
           </form>
         </div>
       </section>
-      <section aria-labelledby="respuesta-title">
+      <section id="response-panel" aria-labelledby="respuesta-title" hidden>
         <div class="card workspace p-3 p-sm-4">
           <h2 id="respuesta-title" tabindex="-1">Explicación</h2>
-          <div id="vacio" class="examples">
-            <h3>Prueba con una pregunta</h3>
-            <button type="button" class="btn btn-example" data-example>¿Cómo funciona DNS?</button>
-            <button type="button" class="btn btn-example" data-example>¿Cuál es la diferencia entre TCP y UDP?</button>
-          </div>
           <div class="d-flex gap-2 align-items-center" role="status">
             <span id="spinner" class="spinner-border spinner-border-sm" aria-hidden="true" hidden></span>
             <span id="estado"></span>
@@ -93,6 +98,7 @@
       </section>
     </div>
   </main>
+  </div>
   <footer class="site-footer">
     <div class="container site-width footer-content">
       <div>
