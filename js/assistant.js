@@ -14,6 +14,7 @@ const suggestion = document.getElementById('suggestion');
 const panel = document.getElementById('response-panel');
 const historyList = document.getElementById('history-list');
 const historyEmpty = document.getElementById('history-empty');
+const deleteTemplate = document.getElementById('history-delete-template');
 const historyKey = 'tic-chat-history';
 const examples = [
   ['Redes', '¿Cómo funciona DNS?'],
@@ -31,9 +32,17 @@ try {
   // The assistant still works when browser storage is unavailable.
 }
 
+function saveHistory() {
+  try {
+    localStorage.setItem(historyKey, JSON.stringify(history));
+  } catch {
+    // Keep changes available for this visit.
+  }
+}
+
 function renderHistory() {
   historyEmpty.hidden = history.length > 0;
-  historyList.replaceChildren(...history.map(({ values, result }) => {
+  historyList.replaceChildren(...history.map(({ values, result }, index) => {
     const item = document.createElement('li');
     const button = document.createElement('button');
     button.type = 'button';
@@ -51,7 +60,16 @@ function renderHistory() {
       showPanel({ result });
       responseTitle.focus();
     });
-    item.append(button);
+    const remove = deleteTemplate.content.firstElementChild.cloneNode(true);
+    remove.setAttribute('aria-label', `Borrar conversación: ${values.pregunta}`);
+    remove.addEventListener('click', () => {
+      history.splice(index, 1);
+      saveHistory();
+      renderHistory();
+      const next = historyList.children[Math.min(index, history.length - 1)];
+      (next?.querySelector('.history-delete') ?? document.getElementById('new-chat')).focus();
+    });
+    item.append(button, remove);
     return item;
   }));
 }
@@ -132,11 +150,7 @@ form.addEventListener('submit', async (event) => {
     const result = await askAssistant(values);
     showPanel({ result });
     history = [{ values, result }, ...history].slice(0, 20);
-    try {
-      localStorage.setItem(historyKey, JSON.stringify(history));
-    } catch {
-      // Keep the history available for this visit.
-    }
+    saveHistory();
     renderHistory();
     if (document.activeElement === document.body) responseTitle.focus();
   } catch (error) {

@@ -6,8 +6,8 @@
   <title>Asistente académico TIC</title>
   <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  <link rel="stylesheet" href="./css/styles.css?v=15">
-  <script type="module" src="./js/assistant.js?v=15"></script>
+  <link rel="stylesheet" href="./css/styles.css?v=16">
+  <script type="module" src="./js/assistant.js?v=16"></script>
 </head>
 <body>
   <header class="masthead">
@@ -18,9 +18,16 @@
   <div class="chat-layout">
     <aside class="chat-history" aria-labelledby="history-title">
       <h2 id="history-title">Historial</h2>
-      <button type="reset" form="consulta" class="btn btn-example">Nueva consulta</button>
+      <button type="reset" form="consulta" id="new-chat" class="btn btn-example">Nueva consulta</button>
       <p id="history-empty" class="text-secondary">Tus consultas guardadas aparecerán aquí.</p>
       <ul id="history-list"></ul>
+      <template id="history-delete-template">
+        <button type="button" class="btn history-delete" title="Borrar conversación">
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 7h16M9 7V4h6v3m3 0-1 13H7L6 7m4 4v5m4-5v5"/>
+          </svg>
+        </button>
+      </template>
     </aside>
   <main class="chat-main">
     <h1>Asistente académico TIC</h1>

@@ -135,6 +135,9 @@ body {
 .chat-history p { font-size: .875rem; margin: .75rem 0 0; }
 #history-list { list-style: none; padding: 0; margin: .5rem 0 0; }
 #history-list button { width: 100%; overflow-wrap: anywhere; }
+#history-list li { display: grid; grid-template-columns: minmax(0, 1fr) 44px; gap: .25rem; }
+#history-list .history-delete { color: #596273; align-self: center; padding: 0; }
+#history-list .history-delete:hover { color: #992b3f; background: #fbeef0; }
 .chat-main { width: min(100%, 46rem); margin: auto; padding: 2rem 1rem; }
 .chat-main h1 {
   margin: 0 0 .75rem;
