@@ -34,7 +34,9 @@ La URL del Webhook es pública. CORS controla el acceso desde navegadores y no a
 | Intermedio | Redes, Intermedio, ¿Cómo funciona DNS?, nativo | HTTP 200 y explicación adaptada | HTTP 200 en Webhook de prueba |
 | Avanzado | Redes, Avanzado, ¿Cómo valida DNSSEC una respuesta?, http | Explicación técnica | Pendiente en la web |
 | Cambio de tema | Bases de datos, Intermedio, ¿Qué es un índice?, nativo | Resultado con el tema elegido | Pendiente en la web |
-| Campos vacíos | Enviar el formulario sin completar | Errores junto a los campos | Pendiente en la web |
+| Campos vacíos | Enviar el formulario sin completar | Errores junto a los campos y foco en el primero | Verificado en GitHub Pages |
 | Cambio de integración | Redes, Intermedio, ¿Cómo funciona DNS?, http | HTTP 200 con la ruta HTTP | HTTP 200 en Webhook de prueba |
 | Integración inválida | Redes, Intermedio, ¿Cómo funciona DNS?, desconocida | HTTP 400 con mensaje | HTTP 400 en Webhook de prueba |
 | Falla de red | Consultar con Network en modo Offline | Error visible y datos conservados | Pendiente en la web |
+| Webhook inactivo | Redes, Básico, ¿Cómo funciona DNS?, nativo | Mensaje de conexión y formulario disponible para reintentar | Mensaje visible en GitHub Pages |
+| Ancho móvil | Abrir el sitio a 375 px | Formulario y respuesta apilados, sin desplazamiento horizontal | Verificado en GitHub Pages |
