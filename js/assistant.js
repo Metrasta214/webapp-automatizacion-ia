@@ -1,5 +1,5 @@
 import { askAssistant } from './api.js';
-import { showFieldError, showPanel, updateCounter } from './assistant-ui.js';
+import { showFieldError, showPanel, updateCounter } from './assistant-ui.js?v=15';
 import { validate } from './validation.js';
 
 const form = document.getElementById('consulta');

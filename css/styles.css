@@ -386,3 +386,28 @@ body {
   .chat-main .composer-menu svg { display: none; }
   .chat-main .composer-menu .form-select { padding-left: .45rem; padding-right: 1.2rem; }
 }
+
+#response-panel .response-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  padding: 0;
+  margin: .25rem 0 1.25rem;
+  background: transparent;
+}
+.response-meta > div {
+  min-width: 0;
+  padding: .5rem .75rem;
+  border: 1px solid #e4e7ef;
+  border-radius: .75rem;
+  background: #f7f8fb;
+}
+.response-meta dt { color: #52617b; font-size: .75rem; }
+.response-meta dd { color: #242c3c; font-size: .875rem; }
+.response-text h4, .response-text h5, .response-text h6 {
+  margin: 1.35rem 0 .5rem;
+  font-weight: 700;
+}
+.response-text h4 { font-size: 1.15rem; }
+.response-text h5, .response-text h6 { font-size: 1rem; }
+.response-text li + li { margin-top: .35rem; }
