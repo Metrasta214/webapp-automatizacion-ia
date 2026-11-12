@@ -6,9 +6,8 @@
   <title>Asistente académico TIC</title>
   <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  <link rel="stylesheet" href="./css/styles.css?v=10">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,800&amp;display=swap">
-  <script type="module" src="./js/assistant.js?v=7"></script>
+  <link rel="stylesheet" href="./css/styles.css?v=11">
+  <script type="module" src="./js/assistant.js?v=11"></script>
 </head>
 <body>
   <header class="masthead">
@@ -36,42 +35,46 @@
               <div class="row g-2 composer-fields">
                 <div class="col-12 composer-input">
                   <h2 class="visually-hidden" id="form-title"><label for="pregunta">¿Qué quieres entender?</label></h2>
-                  <textarea class="form-control" id="pregunta" name="pregunta" required rows="3" maxlength="1000" aria-describedby="contador pregunta-error" placeholder="¿Qué quieres entender?"></textarea>
+                  <textarea class="form-control" id="pregunta" name="pregunta" required rows="2" enterkeyhint="send" maxlength="1000" aria-describedby="contador pregunta-error" placeholder="¿Qué quieres entender?"></textarea>
                   <div class="invalid-feedback" id="pregunta-error"></div>
-                  <div class="composer-tools">
-                  <div class="form-text text-end" id="contador">0 / 1000 caracteres</div>
-                    <div class="composer-actions">
-                <button type="submit" class="btn btn-consulta"><span aria-hidden="true">↑</span><span class="visually-hidden">Enviar consulta</span></button>
-                <button type="reset" class="btn btn-quiet">Limpiar</button>
-              </div>
-                  </div>
+                  <div class="form-text" id="contador">0 / 1000 caracteres</div>
                 </div>
                 <div class="col-12 col-sm-4">
-                  <label class="form-label" for="tema">Tema</label>
+                  <label class="visually-hidden" for="tema">Tema</label>
+                  <div class="composer-menu">
+                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M3 5h7v14H3z M14 5h7v14h-7z"/></svg>
                   <select class="form-select" id="tema" name="tema" required aria-describedby="tema-error">
-                    <option value="">Selecciona un tema</option>
+                    <option value="">Tema</option>
                     <option>Inteligencia artificial</option><option>Redes</option><option>Programación</option>
                     <option>Bases de datos</option><option value="IoT">Internet de las cosas (IoT)</option>
                   </select>
+                  </div>
                   <div class="invalid-feedback" id="tema-error"></div>
                 </div>
                 <div class="col-12 col-sm-4">
-                  <label class="form-label" for="integracion">Integración</label>
+                  <label class="visually-hidden" for="integracion">Integración</label>
+                  <div class="composer-menu">
+                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M10 13l4-4 M8 15l-1 1a3 3 0 0 1-4-4l4-4a3 3 0 0 1 4 0 M16 9l1-1a3 3 0 0 1 4 4l-4 4a3 3 0 0 1-4 0"/></svg>
                   <select class="form-select" id="integracion" name="integracion" required aria-describedby="integracion-help integracion-error">
                     <option value="nativo">Nodo OpenAI</option>
                     <option value="http">HTTP Request / Responses API</option>
                   </select>
+                  </div>
                   <div class="invalid-feedback" id="integracion-error"></div>
                   <p class="visually-hidden" id="integracion-help">Elige cómo se envía la consulta a OpenAI. Ambas opciones usan el tema y nivel seleccionados.</p>
                 </div>
                 <div class="col-12 col-sm-4">
-                  <label class="form-label" for="nivel">Pensamiento</label>
+                  <label class="visually-hidden" for="nivel">Pensamiento</label>
+                  <div class="composer-menu">
+                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M12 2v4 M12 18v4 M2 12h4 M18 12h4 M7 7l2 2 M15 15l2 2 M17 7l-2 2 M9 15l-2 2 M12 9v6 M9 12h6"/></svg>
                   <select class="form-select" id="nivel" name="nivel" required aria-describedby="nivel-error">
-                    <option value="">Elige un nivel</option>
+                    <option value="">Pensamiento</option>
                     <option>Básico</option><option>Intermedio</option><option>Avanzado</option>
                   </select>
+                  </div>
                   <div class="invalid-feedback" id="nivel-error"></div>
                 </div>
+                <button type="submit" class="btn btn-consulta composer-send" aria-label="Enviar consulta">↑</button>
               </div>
             </fieldset>
           </form>

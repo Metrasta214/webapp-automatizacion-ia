@@ -82,6 +82,12 @@ suggestion.addEventListener('click', () => {
   question.focus();
 });
 
+question.addEventListener('keydown', (event) => {
+  if (event.key !== 'Enter' || event.shiftKey || event.isComposing || event.keyCode === 229) return;
+  event.preventDefault();
+  if (!event.repeat && !fields.disabled) form.requestSubmit();
+});
+
 form.addEventListener('input', ({ target }) => {
   if (target.name === 'pregunta') updateCounter();
   if (target.getAttribute('aria-invalid') === 'true') {
