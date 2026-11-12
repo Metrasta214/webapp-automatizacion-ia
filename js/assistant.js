@@ -6,6 +6,7 @@ const form = document.getElementById('consulta');
 const fields = document.getElementById('campos');
 const names = ['pregunta', 'tema', 'nivel', 'integracion'];
 const question = form.elements.pregunta;
+const sentQuestion = document.getElementById('pregunta-enviada');
 const responseTitle = document.getElementById('respuesta-title');
 const retry = document.getElementById('reintentar');
 
@@ -46,6 +47,7 @@ function renderHistory() {
       });
       updateCounter();
       panel.hidden = false;
+      sentQuestion.textContent = values.pregunta;
       showPanel({ result });
       responseTitle.focus();
     });
@@ -123,6 +125,8 @@ form.addEventListener('submit', async (event) => {
 
   fields.disabled = true;
   panel.hidden = false;
+  sentQuestion.textContent = values.pregunta;
+  panel.scrollTop = 0;
   showPanel({ busy: true });
   try {
     const result = await askAssistant(values);

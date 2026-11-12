@@ -315,6 +315,7 @@ body {
 }
 .chat-main .composer-send {
   align-self: start;
+  margin-top: 0;
   margin-left: auto;
   width: 44px;
   height: 44px;
@@ -350,6 +351,21 @@ body {
   gap: .75rem;
 }
 #response-panel { min-height: 0; overflow: auto; overscroll-behavior: contain; }
+#response-panel .workspace {
+  border: 0;
+  box-shadow: none;
+}
+.chat-message {
+  width: fit-content;
+  max-width: 85%;
+  margin: .25rem 0 .75rem auto;
+  padding: .65rem 1rem;
+  border-radius: 1.25rem;
+  background: #f1f1f1;
+  color: #252525;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
 .chat-composer { min-width: 0; }
 .chat-main .composer-fields {
   display: grid;

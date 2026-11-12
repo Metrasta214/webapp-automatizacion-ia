@@ -6,8 +6,8 @@
   <title>Asistente académico TIC</title>
   <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  <link rel="stylesheet" href="./css/styles.css?v=13">
-  <script type="module" src="./js/assistant.js?v=11"></script>
+  <link rel="stylesheet" href="./css/styles.css?v=14">
+  <script type="module" src="./js/assistant.js?v=14"></script>
 </head>
 <body>
   <header class="masthead">
@@ -29,6 +29,7 @@
     </div>
     <div class="work-area">
       <section id="response-panel" aria-labelledby="respuesta-title" hidden>
+        <p id="pregunta-enviada" class="chat-message" aria-label="Tu pregunta"></p>
         <div class="card workspace p-3 p-sm-4">
           <h2 id="respuesta-title" tabindex="-1">Explicación</h2>
           <div class="d-flex gap-2 align-items-center" role="status">
@@ -77,6 +78,7 @@
                   <div class="composer-menu">
                     <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M10 13l4-4 M8 15l-1 1a3 3 0 0 1-4-4l4-4a3 3 0 0 1 4 0 M16 9l1-1a3 3 0 0 1 4 4l-4 4a3 3 0 0 1-4 0"/></svg>
                   <select class="form-select" id="integracion" name="integracion" required aria-describedby="integracion-help integracion-error">
+                    <option value="" disabled hidden selected>Integración</option>
                     <option value="nativo">Nodo OpenAI</option>
                     <option value="http">HTTP Request / Responses API</option>
                   </select>
@@ -89,7 +91,7 @@
                   <div class="composer-menu">
                     <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M12 2v4 M12 18v4 M2 12h4 M18 12h4 M7 7l2 2 M15 15l2 2 M17 7l-2 2 M9 15l-2 2 M12 9v6 M9 12h6"/></svg>
                   <select class="form-select" id="nivel" name="nivel" required aria-describedby="nivel-error">
-                    <option value="">Pensamiento</option>
+                    <option value="" disabled hidden selected>Pensamiento</option>
                     <option>Básico</option><option>Intermedio</option><option>Avanzado</option>
                   </select>
                   </div>
