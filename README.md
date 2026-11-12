@@ -7,7 +7,7 @@ Asistente académico TIC para la práctica del TecNM campus Pachuca. La web usa 
 - `index.html` contiene el formulario y el panel de respuesta.
 - `css/styles.css` define el diseño adaptable.
 - `js/config.js` centraliza el Webhook público, el formato de solicitud y los límites.
-- `js/validation.js`, `js/api.js`, `js/ui.js` y `js/main.js` manejan validación, comunicación, presentación y eventos.
+- `js/validation.js`, `js/api.js`, `js/assistant-ui.js` y `js/assistant.js` manejan validación, comunicación, presentación y eventos.
 - `assets/favicon.svg` identifica el sitio en el navegador.
 
 ## Uso y publicación
