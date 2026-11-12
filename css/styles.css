@@ -314,14 +314,15 @@ body {
   border-radius: 999px;
 }
 .chat-main .composer-send {
+  align-self: start;
   margin-left: auto;
   width: 44px;
   height: 44px;
   padding: 0;
-  background: #222;
+  background: #bc4909;
   color: white;
 }
-.chat-main .composer-send:hover { background: #444; }
+.chat-main .composer-send:hover { background: #9d3804; }
 .chat-layout :focus-visible { outline-color: #555; }
 
 /* Keep the composer available while the explanation scrolls above it. */
