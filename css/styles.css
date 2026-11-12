@@ -11,14 +11,14 @@ body {
 }
 .site-width { max-width: 1140px; }
 .masthead {
-  padding: clamp(2rem, 6vw, 4rem) 0;
+  padding: clamp(.75rem, 2vw, 1.25rem) 0;
   background: #143f41;
   color: #fff;
   border-bottom: 4px solid #69bcaa;
 }
-.course { color: #c2e3dc; font-size: .9rem; margin-bottom: 1rem; }
-h1 { font-size: clamp(2rem, 6vw, 3.5rem); font-weight: 750; letter-spacing: -.04em; }
-.intro { color: #e2f0ed; margin: .5rem 0 0; }
+.course { color: #c2e3dc; font-size: .85rem; margin-bottom: .25rem; }
+.masthead h1 { font-size: clamp(1.5rem, 3.5vw, 2.25rem); font-weight: 750; letter-spacing: -.03em; margin: 0; }
+.intro { color: #e2f0ed; margin: .25rem 0 0; }
 h2 { font-size: 1.45rem; margin-bottom: 1rem; font-weight: 700; }
 .workspace { border-color: var(--line); border-radius: 1rem; }
 .form-label { font-weight: 650; }
