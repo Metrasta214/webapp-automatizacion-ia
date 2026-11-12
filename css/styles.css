@@ -1,0 +1,45 @@
+:root {
+  --ink: #142f36;
+  --teal: #126359;
+  --paper: #f3f7f6;
+  --line: #cbd9d6;
+}
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Atkinson Hyperlegible Next", system-ui, sans-serif;
+}
+.site-width { max-width: 1140px; }
+.masthead {
+  padding: clamp(2rem, 6vw, 4rem) 0;
+  background: #143f41;
+  color: #fff;
+  border-bottom: 4px solid #69bcaa;
+}
+.course { color: #c2e3dc; font-size: .9rem; margin-bottom: 1rem; }
+h1 { font-size: clamp(2rem, 6vw, 3.5rem); font-weight: 750; letter-spacing: -.04em; }
+.intro { color: #e2f0ed; margin: .5rem 0 0; }
+h2 { font-size: 1.45rem; margin-bottom: 1rem; font-weight: 700; }
+.workspace { border-color: var(--line); border-radius: 1rem; }
+.form-label { font-weight: 650; }
+.form-select, .form-control, .btn { min-height: 44px; }
+textarea { resize: vertical; }
+.btn-consulta { background: var(--teal); color: white; }
+.btn-consulta:hover, .btn-consulta:focus-visible { background: #0c4a43; color: white; }
+.btn-consulta:disabled { background: var(--teal); color: white; }
+:where(button, select, textarea):focus-visible { outline: 3px solid #137a72; outline-offset: 2px; }
+.response-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem 1.5rem;
+  padding: .75rem;
+  background: var(--paper);
+  border-radius: .5rem;
+}
+.response-meta dt { font-size: .85rem; }
+.response-meta dd { margin: 0; overflow-wrap: anywhere; }
+.response-text { white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.65; }
+footer { color: #4b6164; font-size: .9rem; }
+@media (prefers-reduced-motion: reduce) {
+  .spinner-border { animation: none; }
+}
