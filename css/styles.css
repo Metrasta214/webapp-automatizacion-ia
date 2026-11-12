@@ -1,46 +1,68 @@
 :root {
-  --ink: #142f36;
-  --teal: #126359;
-  --paper: #f3f7f6;
-  --line: #cbd9d6;
+  --ink: #20291b;
+  --teal: #35631f;
+  --paper: #eff0df;
+  --line: #a9ae90;
 }
 body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   background: var(--paper);
+  background-image: repeating-conic-gradient(#e6e8d4 0% 25%, transparent 0% 50%);
+  background-size: 48px 48px;
   color: var(--ink);
   font-family: "Atkinson Hyperlegible Next", system-ui, sans-serif;
 }
 .site-width { max-width: 1140px; }
 .masthead {
   padding: .75rem 0;
-  background: #e8f1ed;
-  border-bottom: 1px solid var(--line);
+  color: #fff9e5;
+  background: #352a21;
+  border-bottom: 6px solid #73a341;
 }
 .course { display: flex; flex-wrap: wrap; gap: .125rem 1rem; margin: 0; font-size: .875rem; }
-h1 { font-size: clamp(1.75rem, 4vw, 2.75rem); font-weight: 750; letter-spacing: -.035em; margin-bottom: 1.5rem; }
+h1 {
+  margin: 0 0 1.5rem;
+  padding: clamp(1rem, 4vw, 2rem);
+  border: 3px solid #253319;
+  border-bottom: 8px solid #36271d;
+  background: repeating-conic-gradient(#355028 0% 25%, #304825 0% 50%) 0 0 / 48px 48px;
+  color: #fff9e5;
+  font-family: Workbench, "Atkinson Hyperlegible Next", system-ui, sans-serif;
+  font-size: clamp(1.8rem, 5vw, 3.3rem);
+  text-shadow: 3px 3px #20291b;
+  overflow-wrap: anywhere;
+}
 h2 { font-size: 1.35rem; margin-bottom: 1rem; font-weight: 700; }
 .work-area { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.25rem; }
 @media (min-width: 992px) {
   .work-area { grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); }
 }
-.workspace { border-color: var(--line); border-radius: 1rem; }
+.workspace {
+  border: 3px solid #565a43;
+  border-top: 6px solid #71964b;
+  border-radius: 0;
+  background: #fffcf0;
+  box-shadow: 4px 4px 0 #565a43;
+}
+.work-area > section:last-child .workspace { border-top-color: #a68954; }
 .form-label { font-weight: 650; }
-.form-select, .form-control, .btn { min-height: 44px; }
+.form-select, .form-control, .btn { min-height: 44px; border-radius: 0; }
 textarea { resize: vertical; }
-.btn-consulta { background: var(--teal); color: white; }
-.btn-consulta:hover, .btn-consulta:focus-visible { background: #0c4a43; color: white; }
+.form-select, .form-control { border: 2px solid var(--line); background-color: #fffef8; }
+.btn-consulta { background: var(--teal); color: white; border: 2px solid #253319; box-shadow: 0 3px 0 #253319; font-weight: 700; }
+.btn-consulta:hover, .btn-consulta:focus-visible { background: #294b1a; color: white; }
 .btn-consulta:disabled { background: var(--teal); color: white; }
 .btn-quiet { color: #435956; }
-.btn-example { text-align: left; border: 1px solid var(--line); background: white; color: var(--ink); }
-.btn-example:hover, .btn-quiet:hover { background: #e8f1ed; color: var(--ink); }
-.examples { display: grid; justify-items: start; gap: .5rem; background: var(--paper); padding: 1rem; border-radius: .75rem; }
+.btn-example { text-align: left; border: 2px solid var(--line); background: #fffef8; color: var(--ink); }
+.btn-example:hover, .btn-quiet:hover { background: #e7ebd5; color: var(--ink); }
+.examples { display: grid; justify-items: start; gap: .5rem; background: var(--paper); padding: 1rem; border-radius: 0; }
 .examples[hidden] { display: none; }
 .examples h3 { margin: 0 0 .25rem; font-size: 1rem; font-weight: 650; }
-.response-error { background: #fff3ef; border-radius: .75rem; padding: 1rem; }
+.response-error { background: #fff3ef; border-radius: 0; padding: 1rem; }
 .btn:focus-visible, .form-select:focus-visible, .form-control:focus-visible, #respuesta-title:focus-visible {
-  outline: 3px solid #137a72;
+  outline: 3px solid #486d22;
   outline-offset: 3px;
 }
 .response-meta {
@@ -49,7 +71,7 @@ textarea { resize: vertical; }
   gap: .75rem 1.5rem;
   padding: .75rem;
   background: var(--paper);
-  border-radius: .5rem;
+  border-radius: 0;
 }
 .response-meta dt { font-size: .85rem; }
 .response-meta dd { margin: 0; overflow-wrap: anywhere; }
@@ -61,7 +83,7 @@ textarea { resize: vertical; }
 .site-footer {
   margin-top: auto;
   padding: 1rem 0;
-  background: #e8f1ed;
+  background: #e7ebd5;
   border-top: 1px solid var(--line);
   color: #435956;
   font-size: .875rem;
