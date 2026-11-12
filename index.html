@@ -6,7 +6,7 @@
   <title>Asistente académico TIC</title>
   <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  <link rel="stylesheet" href="./css/styles.css?v=7">
+  <link rel="stylesheet" href="./css/styles.css?v=8">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,800&amp;display=swap">
   <script type="module" src="./js/assistant.js?v=7"></script>
 </head>
@@ -33,10 +33,10 @@
         <div class="card workspace p-3 p-sm-4">
           <form id="consulta" novalidate>
             <fieldset id="campos">
-              <div class="row g-3">
-                <div class="col-12">
-                  <h2 id="form-title"><label for="pregunta">¿Qué quieres entender?</label></h2>
-                  <textarea class="form-control" id="pregunta" name="pregunta" required rows="5" maxlength="1000" aria-describedby="contador pregunta-error" placeholder="Escribe tu pregunta aquí"></textarea>
+              <div class="row g-2 composer-fields">
+                <div class="col-12 composer-input">
+                  <h2 class="visually-hidden" id="form-title"><label for="pregunta">¿Qué quieres entender?</label></h2>
+                  <textarea class="form-control" id="pregunta" name="pregunta" required rows="3" maxlength="1000" aria-describedby="contador pregunta-error" placeholder="¿Qué quieres entender?"></textarea>
                   <div class="invalid-feedback" id="pregunta-error"></div>
                   <div class="form-text text-end" id="contador">0 / 1000 caracteres</div>
                 </div>
@@ -50,6 +50,15 @@
                   <div class="invalid-feedback" id="tema-error"></div>
                 </div>
                 <div class="col-12 col-sm-4">
+                  <label class="form-label" for="integracion">Integración</label>
+                  <select class="form-select" id="integracion" name="integracion" required aria-describedby="integracion-help integracion-error">
+                    <option value="nativo">Nodo OpenAI</option>
+                    <option value="http">HTTP Request / Responses API</option>
+                  </select>
+                  <div class="invalid-feedback" id="integracion-error"></div>
+                  <p class="visually-hidden" id="integracion-help">Elige cómo se envía la consulta a OpenAI. Ambas opciones usan el tema y nivel seleccionados.</p>
+                </div>
+                <div class="col-12 col-sm-4">
                   <label class="form-label" for="nivel">Pensamiento</label>
                   <select class="form-select" id="nivel" name="nivel" required aria-describedby="nivel-error">
                     <option value="">Elige un nivel</option>
@@ -57,17 +66,8 @@
                   </select>
                   <div class="invalid-feedback" id="nivel-error"></div>
                 </div>
-                <div class="col-12 col-sm-4">
-                  <label class="form-label" for="integracion">Integración</label>
-                  <select class="form-select" id="integracion" name="integracion" required aria-describedby="integracion-help integracion-error">
-                    <option value="nativo">Nodo OpenAI</option>
-                    <option value="http">HTTP Request / Responses API</option>
-                  </select>
-                  <div class="invalid-feedback" id="integracion-error"></div>
-                  <p class="form-text mb-0" id="integracion-help">Elige cómo se envía la consulta a OpenAI. Ambas opciones usan el tema y nivel seleccionados.</p>
-                </div>
               </div>
-              <div class="d-flex flex-wrap gap-2 mt-4">
+              <div class="composer-actions">
                 <button type="submit" class="btn btn-consulta"><span aria-hidden="true">↑</span><span class="visually-hidden">Enviar consulta</span></button>
                 <button type="reset" class="btn btn-quiet">Limpiar</button>
               </div>
