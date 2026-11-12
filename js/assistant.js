@@ -14,6 +14,39 @@ const suggestion = document.getElementById('suggestion');
 const panel = document.getElementById('response-panel');
 const historyList = document.getElementById('history-list');
 const historyEmpty = document.getElementById('history-empty');
+const historyToggle = document.getElementById('history-toggle');
+const historyDrawer = document.getElementById('chat-history');
+const historyBackdrop = document.querySelector('.history-backdrop');
+const mobileLayout = matchMedia('(max-width: 767px)');
+const chatMain = document.querySelector('.chat-main');
+
+function setHistoryOpen(open) {
+  historyDrawer.classList.toggle('is-open', open);
+  historyToggle.setAttribute('aria-expanded', String(open));
+  historyToggle.setAttribute('aria-label', open ? 'Cerrar historial' : 'Abrir historial');
+  historyBackdrop.hidden = !open;
+  chatMain.inert = open;
+}
+
+function closeHistory() {
+  if (historyToggle.getAttribute('aria-expanded') === 'false') return;
+  setHistoryOpen(false);
+  historyToggle.focus();
+}
+
+historyToggle.addEventListener('click', () => {
+  if (historyToggle.getAttribute('aria-expanded') === 'true') {
+    closeHistory();
+  } else {
+    setHistoryOpen(true);
+    document.getElementById('new-chat').focus();
+  }
+});
+historyBackdrop.addEventListener('click', closeHistory);
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') closeHistory();
+});
+mobileLayout.addEventListener('change', () => setHistoryOpen(false));
 const deleteTemplate = document.getElementById('history-delete-template');
 const historyKey = 'tic-chat-history';
 const examples = [
@@ -50,6 +83,7 @@ function renderHistory() {
     button.textContent = values.pregunta;
     button.addEventListener('click', () => {
       if (fields.disabled) return;
+      setHistoryOpen(false);
       names.forEach((name) => {
         form.elements[name].value = values[name];
         showFieldError(name);
@@ -120,6 +154,7 @@ form.addEventListener('reset', (event) => {
     event.preventDefault();
     return;
   }
+  setHistoryOpen(false);
   names.forEach((name) => showFieldError(name));
   panel.hidden = true;
   showPanel();

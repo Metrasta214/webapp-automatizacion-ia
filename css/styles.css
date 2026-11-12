@@ -414,3 +414,44 @@ body {
 .response-text h4 { font-size: 1.15rem; }
 .response-text h5, .response-text h6 { font-size: 1rem; }
 .response-text li + li { margin-top: .35rem; }
+
+.masthead-content { display: flex; align-items: center; gap: .65rem; }
+.masthead .history-toggle { display: none; }
+@media (max-width: 767px) {
+  .masthead { padding: .15rem 0; }
+  .masthead .history-toggle {
+    display: grid;
+    place-items: center;
+    flex: 0 0 44px;
+    padding: 0;
+    color: inherit;
+  }
+  .masthead .course { display: block; line-height: 1.25; }
+  .masthead .course span { display: block; font-size: .75rem; }
+  .chat-layout { position: relative; }
+  .chat-layout:has(#response-panel:not([hidden])) { grid-template-rows: minmax(0, 1fr); }
+  .chat-layout .chat-history,
+  .chat-layout:has(#response-panel:not([hidden])) .chat-history {
+    position: absolute;
+    inset: 0 auto 0 0;
+    z-index: 3;
+    width: min(82%, 18rem);
+    max-height: none;
+    overflow: auto;
+    visibility: hidden;
+    border-right: 1px solid #dedfe7;
+    box-shadow: 6px 0 24px #18203720;
+  }
+  .chat-layout .chat-history.is-open { visibility: visible; }
+  .history-backdrop {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    border: 0;
+    background: #161d3952;
+  }
+  .site-footer { padding: .6rem 0 max(.6rem, env(safe-area-inset-bottom)); }
+  .footer-content { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: .75rem; line-height: 1.35; }
+  .footer-credit { text-align: right; border: 0; padding: 0; }
+  .footer-credit p:nth-child(2) { display: none; }
+}
