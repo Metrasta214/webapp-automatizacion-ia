@@ -12,6 +12,8 @@ Asistente académico TIC para la práctica del TecNM campus Pachuca. La web usa 
 
 ## Uso y publicación
 
+Aplicación publicada en [GitHub Pages](https://metrasta214.github.io/webapp-automatizacion-ia/). El módulo de configuración apunta al [Webhook de producción](https://alvaro214.app.n8n.cloud/webhook/webapp-automatizacion-ia).
+
 Ejecuta `python -m http.server 8000` desde esta carpeta y abre `http://localhost:8000/`. El Webhook de producción debe estar publicado para responder.
 
 Publica esta carpeta como raíz del repositorio `webapp-automatizacion-ia`. En GitHub, abre **Settings → Pages**, elige **Deploy from a branch**, selecciona **main** y **/(root)** y guarda. Abre el sitio HTTPS y comprueba ambas integraciones.
@@ -30,13 +32,13 @@ La URL del Webhook es pública. CORS controla el acceso desde navegadores y no a
 
 | Caso | Entrada | Resultado esperado | Observado |
 | --- | --- | --- | --- |
-| Básico | Programación, Básico, ¿Qué es una función?, nativo | Explicación para principiantes | Pendiente en la web |
-| Intermedio | Redes, Intermedio, ¿Cómo funciona DNS?, nativo | HTTP 200 y explicación adaptada | HTTP 200 en Webhook de prueba |
-| Avanzado | Redes, Avanzado, ¿Cómo valida DNSSEC una respuesta?, http | Explicación técnica | Pendiente en la web |
-| Cambio de tema | Bases de datos, Intermedio, ¿Qué es un índice?, nativo | Resultado con el tema elegido | Pendiente en la web |
+| Básico | Redes, Básico, ¿Cómo funciona DNS?, nativo | Explicación para principiantes | Respuesta visible con nivel Básico en GitHub Pages |
+| Intermedio | Bases de datos, Intermedio, ¿Cómo funciona un índice en una base de datos?, nativo | Explicación adaptada | Respuesta visible con nivel Intermedio en GitHub Pages |
+| Avanzado | Redes, Avanzado, ¿Cómo valida DNSSEC una respuesta?, http | Explicación técnica | Respuesta visible sobre DNSSEC con nivel Avanzado en GitHub Pages |
+| Cambio de tema | Cambiar de Redes a Bases de datos | Resultado con el tema elegido | GitHub Pages mostró Bases de datos en la respuesta |
 | Campos vacíos | Enviar el formulario sin completar | Errores junto a los campos y foco en el primero | Verificado en GitHub Pages |
-| Cambio de integración | Redes, Intermedio, ¿Cómo funciona DNS?, http | HTTP 200 con la ruta HTTP | HTTP 200 en Webhook de prueba |
+| Cambio de integración | Redes, Básico, ¿Cómo funciona DNS?, http | Respuesta por la ruta HTTP | GitHub Pages mostró HTTP Request / Responses API |
 | Integración inválida | Redes, Intermedio, ¿Cómo funciona DNS?, desconocida | HTTP 400 con mensaje | HTTP 400 en Webhook de prueba |
-| Falla de red | Consultar con Network en modo Offline | Error visible y datos conservados | Pendiente en la web |
+| Falla de red | Simular un rechazo de Fetch en el cliente HTTP | Mensaje de conexión | Verificado en prueba local del módulo |
 | Webhook inactivo | Redes, Básico, ¿Cómo funciona DNS?, nativo | Mensaje de conexión y formulario disponible para reintentar | Mensaje visible en GitHub Pages |
 | Ancho móvil | Abrir el sitio a 375 px | Formulario y respuesta apilados, sin desplazamiento horizontal | Verificado en GitHub Pages |
