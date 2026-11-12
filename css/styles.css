@@ -181,13 +181,15 @@ body {
   background: #f8f9fd;
 }
 .masthead, .site-footer {
-  background: #eff1fa;
-  color: #465475;
-  border-color: #dce2f0;
+  background: #143a44;
+  color: #d2e9eb;
+  border-color: #57c3b4;
 }
-.site-footer { margin: 0; padding: .65rem 0; }
-.site-footer .footer-title { color: #222943; }
-.footer-credit { border-color: #dce2f0; }
+.masthead .course strong, .site-footer .footer-title { color: #fff; }
+.masthead .history-toggle:hover { background: #235360; }
+.masthead .history-toggle:focus-visible { outline-color: #8ee5d8; }
+.site-footer { margin: 0; padding: .65rem 0; background: #102e37; }
+.footer-credit { border-color: #42717a; }
 .chat-layout {
   background:
     radial-gradient(ellipse at 75% 10%, #dcdfff90, transparent 55%),
